@@ -5,6 +5,33 @@
     <title>Lab2</title>
 </head>
 <body>
-    
+    <script>
+        function Vehicle(type){
+            this.type = type;
+            console.log(type);
+        }
+
+        Vehicle.prototype.drive = function(){
+            console.log('Driving')
+        }
+
+        function Car(model){
+            Vehicle.call(this, 'car');
+            this.model = model;
+        }
+
+        Car.prototype = Object.create(Vehicle.prototype);
+        Car.constructor = Car;
+
+        Car.prototype.printModel = function(){
+            console.log(this.model);
+        }
+
+        var car = new Car('Nissan');
+        car.drive();
+        car.printModel();
+
+        //car.prototype.printModel();    undefined at prototype object copy
+    </script>
 </body>
 </html># Test
