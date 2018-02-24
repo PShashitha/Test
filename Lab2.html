@@ -68,19 +68,22 @@
 
     function calculatedTax(percentage){
 
-        var percentage = percentage;
-        /*  return function (amount){                   //returns function>>> then function returns value... Functional Closure
-            return (amount*percentage)/100;             //returns value
+        //var percentage = percentage;                             //CREATING class scope variable
+        this.percentage = percentage;
+        /*  return function (amount){                            //returns function>>> then function returns value...Functional Closure
+            return (amount*percentage)/100;                      //returns value
+
+            // var calc= function(amount){---};   return calc;   //no functional closure
         }*/
 
 
-           return function(amount){                     //amount is taken from calling parameter
-                  return (amount*percentage)/100;       //returns variable
+           return function(amount){                     //amount is taken from calling parameter....
+                  return (amount*this.percentage)/100;       //returns variable
            }
 
     }
     var calculated = calculatedTax(99);
-    console.log(calculated(50))
+    console.log(calculated(50));                        //Functional Closure
 
 
     </script>
