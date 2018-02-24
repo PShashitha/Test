@@ -6,6 +6,7 @@
 </head>
 <body>
     <script>
+/*
         function Vehicle(type){
             this.type = type;
             console.log(type);
@@ -32,6 +33,42 @@
         car.printModel();
 
         //car.prototype.printModel();    undefined at prototype object copy
+
+*/
+
+
+        var amount = 1000;
+
+        function printAmount(){
+
+            console.log(this.amount);
+
+        }
+
+        var car = {
+            amount : 100000,
+            model   : 'Nissan',
+            printAmount : printAmount,
+            //printAmount :printAmount.bind(window),              //binds to the executing global window
+
+        };
+
+        printAmount();
+        car.printAmount();
+        car.printAmount.call(window);
+
+        var van = {
+            amount : 200000,
+            model : 'Nissan',
+            printAmount : printAmount,
+
+        }
+
+        car.printAmount.call(van);
+
+
+
+
     </script>
 </body>
 </html># Test
