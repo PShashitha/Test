@@ -36,7 +36,7 @@
 
 */
 
-
+/*
         var amount = 1000;
 
         function printAmount(){
@@ -64,9 +64,23 @@
 
         }
 
-        car.printAmount.call(van);
+        car.printAmount.call(van);*/
+
+    function calculatedTax(percentage){
+
+        var percentage = percentage;
+        /*  return function (amount){                   //returns function>>> then function returns value... Functional Closure
+            return (amount*percentage)/100;             //returns value
+        }*/
 
 
+           return function(amount){
+                  return (amount*percentage)/100;     //returns variable
+           }
+
+    }
+    var calculated = calculatedTax(99);
+    console.log(calculated(50))
 
 
     </script>
